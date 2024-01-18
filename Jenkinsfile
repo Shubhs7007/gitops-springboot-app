@@ -34,9 +34,9 @@ pipeline {
                    git config --global user.email "sgajare285@gamil.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
-                """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/shubhs7007/gitops-springboot-app main"
+                   """
+                   withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                     sh "git push https://github.com/shubhs7007/gitops-springboot-app main"
                 }
             }
         }
