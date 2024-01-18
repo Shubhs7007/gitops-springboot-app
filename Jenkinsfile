@@ -1,7 +1,7 @@
 pipeline {
     agent { label "Jenkins Agent" }
     environment {
-              APP_NAME = "spring-boot-app-pipeline"
+              APP_NAME = "springboot-app-pipeline"
     }
 
     stages {
