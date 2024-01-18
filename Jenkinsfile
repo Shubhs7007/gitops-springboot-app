@@ -24,22 +24,7 @@ pipeline {
                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
                    cat deployment.yaml
                 """
-            }
+                 }
+             }
         }
-
-        stage("Push the changed deployment file to Git") {
-            steps {
-                sh """
-                   git config --global user.name "shubhs7007"
-                   git config --global user.email "sgajare285@gamil.com"
-                   git add deployment.yaml
-                   git commit -m "Updated Deployment Manifest"
-                   """
-                   withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                     sh "git push https://github.com/shubhs7007/gitops-springboot-app main"
-                }
-            }
-        }
-      
-    }
 }
